@@ -21,5 +21,13 @@ manager = Manager(app) # controle de informações passadas durante a execução
 
 
 manager.add_command('db', MigrateCommand)
- 
+
+# python run.py db init -- irá inicializar o banco de dados, criando a pasta migrations
+# python run.py db migrate -- irá criar o storage.db (nomeado na linha 9) e cirar a tabela padrão para ajuda na migração de dados durante a execução do app (chama-se 'alembic versions')
+# python run.py db upgrade -- irá realizar as migrações e inserir as novas alterações realizadas no banco de dados
+
+# os comandos db migrate e db update devem ser executados TODA VEZ que houver alterações no banco de dados
+
+
+
 from app.controllers import default
