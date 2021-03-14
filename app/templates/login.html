@@ -1,8 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html' %}
 
 {% block title %} {{ super() }} - Login {% endblock %}
 
+{% block a %} Login {% endblock %}
 {% block content %}
-
+    <br>
+    <div class = "container">
+        <form action="" method="post">
+            {{ form.csrf_token }}
+			<div class = "input-field col s12">
+				{{ form.username(_class="validate")}}
+                <label>Username </label>
+			</div>
+			<div class = "input-field col s12">
+				{{ form.password(_class="validate")}}
+                <label>Password </label>
+			</div>
+            <div>
+                <p>
+                    <label>
+                        {{ form.remember_me(class="filled-in",_type="checkbox",_checked="checked") }}
+                        <span> Lembrar Usuário </span>
+                    </label>
+                </p>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+       
+    </div>
 
 {% endblock %}
