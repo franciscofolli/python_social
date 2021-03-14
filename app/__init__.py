@@ -4,9 +4,8 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
 app = Flask(__name__) # instanciando Flask no objeto 'app' para execução do projeto
-
+app.config.from_object('config') # quando o debug é inicializado, o flask reinicia automaticamente conforme as alterações
 # configurando database com sqlalchemy (lembrar de utilizar metodo atualizado pois o abaixo esta descontinuado)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storage.db'
 db = SQLAlchemy(app) #instanciando nossa aplicação no db 
 
 migrate = Migrate(app, db) # Instanciando migrate que irá cuidar das migrações de banco que recebe 
